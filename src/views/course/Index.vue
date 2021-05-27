@@ -1,31 +1,29 @@
 <template>
-  <div class="container">
-    <Search
-      v-model="searchValue"
-      round
-      placeholder="请输入搜索关键词"
-      input-align="center"
+  <Search
+    v-model="searchValue"
+    round
+    placeholder="请输入搜索关键词"
+    input-align="center"
+  />
+  <List
+    v-model:loading="state.loading"
+    :finished="state.finished"
+    finished-text="没有更多了"
+    @load="onLoad"
+  >
+    <Cell
+      class="course"
+      v-for="item in state.list"
+      :key="item"
+      :title="item"
+      center
+      value="张佳"
+      label="信息技术与工程学院"
     />
-    <List
-      v-model:loading="state.loading"
-      :finished="state.finished"
-      finished-text="没有更多了"
-      @load="onLoad"
-    >
-      <Cell
-        class="course"
-        v-for="item in state.list"
-        :key="item"
-        :title="item"
-        center
-        value="张佳"
-        label="信息技术与工程学院"
-      />
-    </List>
-  </div>
+  </List>
 </template>
 
-<style lang="less">
+<style lang="less" >
 @import "@/assets/common.less";
 .course {
   .van-cell__title {
@@ -33,6 +31,12 @@
   }
   box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
     0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+}
+.van-search {
+  width: 100%;
+}
+.van-list {
+  width: 100%;
 }
 </style>
 

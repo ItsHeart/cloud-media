@@ -1,6 +1,8 @@
 <template>
   <NavBar title="Cloud Media" :safe-area-inset-top="true" />
-  <router-view />
+  <div class="container">
+    <router-view />
+  </div>
   <div style="height: 50px"></div>
   <Tabbar v-model="active" active-color="#222831" inactive-color="#B4B6B5">
     <TabbarItem icon="manager-o" to="/">我</TabbarItem>
@@ -9,6 +11,19 @@
     <TabbarItem icon="comment-circle-o" to="/community">社区</TabbarItem>
   </Tabbar>
 </template>
+
+
+<style lang="less">
+@import "@/assets/common.less";
+.container {
+  width: 100vw;
+  min-height: calc(100vh - 96px);
+  background-color: @container-background-color;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+</style>
 
 <script>
 import { ref } from "vue";
