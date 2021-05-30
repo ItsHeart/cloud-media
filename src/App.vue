@@ -2,7 +2,7 @@
   <router-view />
 </template>
 
-<style>
+<style lang="less">
 #app {
   font-family: Roboto, Noto, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

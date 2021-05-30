@@ -37,6 +37,22 @@
   </div>
 </template>
 
+<script>
+import { Icon, Image, Grid, GridItem } from "vant";
+import Badge from "@/components/Badge.vue";
+
+export default {
+  name: "Self",
+  components: {
+    Icon,
+    Image,
+    Badge,
+    Grid,
+    GridItem,
+  },
+};
+</script>
+
 <style lang="less" scoped>
 @import "@/assets/common.less";
 
@@ -78,19 +94,3 @@
   padding: 0 @border-padding;
 }
 </style>
-
-<script>
-import { Icon, Image, Grid, GridItem } from "vant";
-import Badge from "@/components/Badge.vue";
-
-export default {
-  name: "Self",
-  components: {
-    Icon,
-    Image,
-    Badge,
-    Grid,
-    GridItem,
-  },
-};
-</script>

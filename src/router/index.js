@@ -26,6 +26,10 @@ export default createRouter({
 					component: () => import("@/views/community/Index.vue")
 				}
 			]
+		},
+		{
+			path: "/course/detail",
+			component: () => import("@/views/course/Detail.vue")
 		}
 	]
 });

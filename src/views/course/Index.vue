@@ -19,30 +19,15 @@
       center
       value="张佳"
       label="信息技术与工程学院"
+      is-link
+      to="/course/detail"
     />
   </List>
 </template>
 
-<style lang="less" scoped>
-@import "@/assets/common.less";
-.course {
-  .van-cell__title {
-    text-align: left;
-  }
-  box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
-    0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
-}
-.van-search {
-  width: 100%;
-}
-.van-list {
-  width: 100%;
-}
-</style>
-
 <script>
 import { Search, List, Cell, Divider } from "vant";
-import { ref, reactive, onMounted } from "vue";
+import { ref, reactive } from "vue";
 
 export default {
   name: "course",
@@ -74,3 +59,20 @@ export default {
   },
 };
 </script>
+
+<style lang="less" scoped>
+@import "@/assets/common.less";
+.course {
+  .van-cell__title {
+    text-align: left;
+  }
+  box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
+    0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+}
+.van-search {
+  width: 100%;
+}
+.van-list {
+  width: 100%;
+}
+</style>
