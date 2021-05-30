@@ -26,7 +26,7 @@
 </style>
 
 <script>
-import { ref } from "vue";
+import { ref, onMounted, getCurrentInstance } from "vue";
 import { Tabbar, TabbarItem, NavBar } from "vant";
 
 export default {
@@ -37,10 +37,27 @@ export default {
     NavBar,
   },
   setup() {
+    onMounted(() => {
+      const { ctx } = getCurrentInstance();
+      switch (ctx.$router.currentRoute.value.fullPath) {
+        case "/hotPoint":
+          choiceActive(1);
+          break;
+        case "/course":
+          choiceActive(2);
+          break;
+        case "/community":
+          choiceActive(3);
+          break;
+      }
+    });
     const active = ref(0);
-
+    const choiceActive = function (newV) {
+      active.value = newV;
+    };
     return {
       active,
+      choiceActive,
     };
   },
 };

@@ -23,7 +23,7 @@
   </List>
 </template>
 
-<style lang="less" >
+<style lang="less" scoped>
 @import "@/assets/common.less";
 .course {
   .van-cell__title {
@@ -42,7 +42,7 @@
 
 <script>
 import { Search, List, Cell, Divider } from "vant";
-import { ref, reactive } from "vue";
+import { ref, reactive, onMounted } from "vue";
 
 export default {
   name: "course",
