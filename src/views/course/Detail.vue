@@ -1,5 +1,12 @@
 <template>
-  <NavBar title="课程详情" left-text="返回" left-arrow @click-left="goBack" />
+  <NavBar
+    title="课程详情"
+    left-text="返回"
+    left-arrow
+    @click-left="goBack"
+    fixed
+    placeholder
+  />
   <div class="title">
     <Icon name="contact" />
     <span>投票信息</span>
