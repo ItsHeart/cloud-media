@@ -67,12 +67,31 @@
     @load="onLoad"
     ><Vote class="vote" v-for="item in state.list" :key="item" :result="item" />
   </List>
+
+  <div style="height: 50px"></div>
+  <ActionBar>
+    <ActionBarIcon icon="star-o" text="收藏" />
+    <ActionBarIcon icon="bulb-o" text="举报" />
+    <ActionBarButton color="#222831" text="参与" />
+  </ActionBar>
 </template>
 
 
 
 <script>
-import { NavBar, Skeleton, Image, Divider, Icon, List, Cell, Rate } from "vant";
+import {
+  NavBar,
+  Skeleton,
+  Image,
+  Divider,
+  Icon,
+  List,
+  Cell,
+  Rate,
+  ActionBar,
+  ActionBarIcon,
+  ActionBarButton,
+} from "vant";
 import { useRouter } from "vue-router";
 import Badge from "@/components/Badge.vue";
 import Vote from "@/components/Vote.vue";
@@ -90,6 +109,9 @@ export default {
     Badge,
     Rate,
     Vote,
+    ActionBar,
+    ActionBarIcon,
+    ActionBarButton,
   },
   setup() {
     const _router = useRouter();
@@ -122,7 +144,6 @@ export default {
             describe: "zjvivi好啊好，好啊好，好啊好，好啊好，好啊好，好啊好",
           });
         }
-        console.log(state.list);
         state.loading = false;
         if (state.list.length >= 40) {
           state.finished = true;
