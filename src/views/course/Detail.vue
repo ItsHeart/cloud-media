@@ -29,15 +29,26 @@
       </div>
     </div>
   </Skeleton>
+
   <div class="title">
     <Icon name="bar-chart-o" />
     <span>平均结果</span>
   </div>
   <div class="result">
-    <p>有趣程度：<Rate v-model="result.interesting" readonly allow-half /></p>
-    <p>严格程度：<Rate v-model="result.strict" readonly allow-half /></p>
-    <p>作业数量：<Rate v-model="result.homework" readonly allow-half /></p>
+    <p>
+      有趣程度：<Rate v-model="result.interesting" readonly allow-half />
+      <strong> 3.3</strong>
+    </p>
+    <p>
+      严格程度：<Rate v-model="result.strict" readonly allow-half />
+      <strong> 4.1</strong>
+    </p>
+    <p>
+      作业数量：<Rate v-model="result.homework" readonly allow-half />
+      <strong> 4.5</strong>
+    </p>
   </div>
+
   <div class="title">
     <Icon name="comment-o" />
     <span>评论</span>
@@ -47,15 +58,7 @@
     :finished="state.finished"
     finished-text="没有更多了"
     @load="onLoad"
-    ><Cell
-      class="vote"
-      v-for="item in state.list"
-      :key="item"
-      :title="item"
-      center
-      value="张佳"
-      label="信息技术与工程学院"
-    />
+    ><Vote class="vote" v-for="item in state.list" :key="item" :result="item" />
   </List>
 </template>
 
@@ -65,6 +68,7 @@
 import { NavBar, Skeleton, Image, Divider, Icon, List, Cell, Rate } from "vant";
 import { useRouter } from "vue-router";
 import Badge from "@/components/Badge.vue";
+import Vote from "@/components/Vote.vue";
 import { ref, reactive } from "vue";
 export default {
   name: "courseDetail",
@@ -78,6 +82,7 @@ export default {
     Cell,
     Badge,
     Rate,
+    Vote,
   },
   setup() {
     const _router = useRouter();
@@ -101,8 +106,16 @@ export default {
     const onLoad = () => {
       setTimeout(() => {
         for (let i = 0; i < 10; i++) {
-          state.list.push("多媒体技术");
+          state.list.push({
+            userName: "Double Chen",
+            publishTime: "2021/05/31",
+            interesting: 3.3,
+            strict: 4.1,
+            homework: 4.5,
+            describe: "zjvivi好啊好，好啊好，好啊好，好啊好，好啊好，好啊好",
+          });
         }
+        console.log(state.list);
         state.loading = false;
         if (state.list.length >= 40) {
           state.finished = true;
@@ -131,6 +144,9 @@ export default {
   * {
     margin-right: 5px;
   }
+}
+.van-skeleton {
+  margin: 5px 0 12px 0;
 }
 .info {
   width: calc(100vw - 2 * 16px);
@@ -169,12 +185,5 @@ export default {
   * {
     line-height: 32px;
   }
-}
-.vote {
-  .van-cell__title {
-    text-align: left;
-  }
-  box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
-    0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
 }
 </style>
