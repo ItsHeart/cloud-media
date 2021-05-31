@@ -1,5 +1,9 @@
 <template>
   <NavBar title="课程详情" left-text="返回" left-arrow @click-left="goBack" />
+  <div class="title">
+    <Icon name="contact" />
+    <span>投票信息</span>
+  </div>
   <Skeleton title avatar :row="3" :loading="loading">
     <div class="info">
       <div class="person">
@@ -11,8 +15,6 @@
           src="https://img.yzcdn.cn/vant/cat.jpeg"
         />
         <strong>老婆就一个很好起名字</strong>
-        <Badge content="未认证" />
-        <Badge content="HZNU" color="#f08a5d" />
       </div>
       <div class="describe">
         <p>
@@ -20,13 +22,26 @@
           发起了<strong> WEB程序设计 </strong>的课程投票
         </p>
         <p>
-          <Icon name="manager-o" /> 张佳老师 <small> 信息技术与工程学院</small>
+          <Icon name="manager-o" /> 张佳老师
+          <small> 信息技术与工程学院</small>
         </p>
         <p><Icon name="flag-o" /> 累计<strong> 99 </strong>个人发起</p>
       </div>
     </div>
   </Skeleton>
-  <Divider>评论</Divider>
+  <div class="title">
+    <Icon name="bar-chart-o" />
+    <span>平均结果</span>
+  </div>
+  <div class="result">
+    <p>有趣程度：<Rate v-model="result.interesting" readonly allow-half /></p>
+    <p>严格程度：<Rate v-model="result.strict" readonly allow-half /></p>
+    <p>作业数量：<Rate v-model="result.homework" readonly allow-half /></p>
+  </div>
+  <div class="title">
+    <Icon name="comment-o" />
+    <span>评论</span>
+  </div>
   <List
     v-model:loading="state.loading"
     :finished="state.finished"
@@ -47,8 +62,9 @@
 
 
 <script>
-import { NavBar, Skeleton, Image, Divider, Icon, List, Cell } from "vant";
+import { NavBar, Skeleton, Image, Divider, Icon, List, Cell, Rate } from "vant";
 import { useRouter } from "vue-router";
+import Badge from "@/components/Badge.vue";
 import { ref, reactive } from "vue";
 export default {
   name: "courseDetail",
@@ -60,6 +76,8 @@ export default {
     Divider,
     List,
     Cell,
+    Badge,
+    Rate,
   },
   setup() {
     const _router = useRouter();
@@ -74,6 +92,11 @@ export default {
       list: [],
       loading: false,
       finished: false,
+    });
+    const result = reactive({
+      interesting: 3.3,
+      strict: 4.1,
+      homework: 4.5,
     });
     const onLoad = () => {
       setTimeout(() => {
@@ -91,18 +114,28 @@ export default {
       loading,
       state,
       onLoad,
+      result,
     };
   },
 };
 </script>
 
 <style lang="less" scoped>
-.van-nav-bar {
-  margin-bottom: 10px;
+@import "@/assets/common.less";
+.title {
+  background-color: @container-background-color;
+  padding: 3px 8px;
+  font-size: 14px;
+  width: calc(100vw - 2 * 8px);
+  text-align: left;
+  * {
+    margin-right: 5px;
+  }
 }
 .info {
   width: calc(100vw - 2 * 16px);
   background-color: #fff;
+  margin-top: 5px;
   padding: 0 16px;
   display: flex;
   flex-direction: column;
@@ -114,11 +147,18 @@ export default {
 }
 .person {
   line-height: 32px;
-
   display: flex;
   align-items: flex-start;
   .van-image {
     margin-right: 16px;
+  }
+}
+.result {
+  text-align: left;
+  padding-left: 64px;
+  p {
+    margin: 12px 0;
+    font-size: 14px;
   }
 }
 .describe {
