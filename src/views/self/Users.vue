@@ -13,7 +13,7 @@
     :finished="state.finished"
     finished-text="没有更多了"
     @load="onLoad"
-    ><FollowUsers class="vote" v-for="item in state.list" :key="item" :result="item" />
+    ><FollowUsers v-for="item in state.list" :key="item" :result="item" />
   </List>
 
 </template>

@@ -30,7 +30,7 @@ import { Search, List, Cell, Divider } from "vant";
 import { ref, reactive } from "vue";
 
 export default {
-  name: "course",
+  name: "Course",
   components: {
     Search,
     List,
