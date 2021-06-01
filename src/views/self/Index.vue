@@ -30,9 +30,9 @@
   </div>
   <div class="follow">
     <Grid direction="horizontal" :column-num="3">
-      <GridItem icon="photo-o" text="板块" />
-      <GridItem icon="photo-o" text="课程" />
-      <GridItem icon="photo-o" text="用户" />
+      <GridItem icon="chat-o" text="帖子" />
+      <GridItem icon="description" text="课程" />
+      <GridItem icon="friends-o" text="用户" to="/self/users"/>
     </Grid>
   </div>
 </template>

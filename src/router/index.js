@@ -30,6 +30,10 @@ export default createRouter({
 		{
 			path: "/course/detail",
 			component: () => import("@/views/course/Detail.vue")
+		},
+		{
+			path: "/self/users",
+			component: () => import("@/views/self/Users.vue")
 		}
 	]
 });
