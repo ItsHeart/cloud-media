@@ -17,12 +17,14 @@
     <HotPointCell :rank="8" />
     <HotPointCell :rank="9" />
     <HotPointCell :rank="10" />
+    <UnderEmpty />
   </PullRefresh>
 </template>
 
 <script>
 import { PullRefresh } from "vant";
 import HotPointCell from "@/components/HotPointCell.vue";
+import UnderEmpty from "@/components/UnderEmpty.vue";
 import { reactive } from "vue";
 
 export default {
@@ -30,6 +32,7 @@ export default {
   components: {
     PullRefresh,
     HotPointCell,
+    UnderEmpty,
   },
   setup() {
     const state = reactive({
