@@ -121,7 +121,6 @@ import {
   Button,
 } from "vant";
 import { useRouter } from "vue-router";
-import Badge from "@/components/Badge.vue";
 import VoteComment from "@/components/VoteComment.vue";
 import { ref, reactive } from "vue";
 export default {
@@ -134,7 +133,6 @@ export default {
     Divider,
     List,
     Cell,
-    Badge,
     Rate,
     VoteComment,
     ActionBar,
