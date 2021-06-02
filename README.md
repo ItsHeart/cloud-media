@@ -33,3 +33,4 @@ npm run build
 ## 任务清单
 
 - [ ] keep-alive
+- [ ] 课程增加下拉刷新

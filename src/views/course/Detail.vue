@@ -72,8 +72,11 @@
   <ActionBar>
     <ActionBarIcon icon="star-o" text="收藏" />
     <ActionBarIcon icon="bulb-o" text="举报" />
-    <ActionBarButton color="#222831" text="参与" />
+    <ActionBarButton color="#222831" text="参与" @click="comment" />
   </ActionBar>
+  <ActionSheet v-model:show="commentShow" title="标题">
+    <div class="commentContent">内容</div>
+  </ActionSheet>
 </template>
 
 
@@ -91,6 +94,7 @@ import {
   ActionBar,
   ActionBarIcon,
   ActionBarButton,
+  ActionSheet,
 } from "vant";
 import { useRouter } from "vue-router";
 import Badge from "@/components/Badge.vue";
@@ -112,6 +116,7 @@ export default {
     ActionBar,
     ActionBarIcon,
     ActionBarButton,
+    ActionSheet,
   },
   setup() {
     const _router = useRouter();
@@ -150,12 +155,18 @@ export default {
         }
       }, 1000);
     };
+    const commentShow = ref(false);
+    const comment = () => {
+      commentShow.value = true;
+    };
     return {
       goBack,
       loading,
       state,
       onLoad,
       result,
+      commentShow,
+      comment,
     };
   },
 };
@@ -213,5 +224,8 @@ export default {
   * {
     line-height: 32px;
   }
+}
+.commentContent {
+  padding: 16px 16px 160px;
 }
 </style>
