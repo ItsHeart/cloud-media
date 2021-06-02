@@ -97,7 +97,7 @@ import Badge from "@/components/Badge.vue";
 import Vote from "@/components/Vote.vue";
 import { ref, reactive } from "vue";
 export default {
-  name: "courseDetail",
+  name: "CourseDetail",
   components: {
     NavBar,
     Skeleton,

@@ -15,26 +15,16 @@
     @load="onLoad"
     ><FollowUsers v-for="item in state.list" :key="item" :result="item" />
   </List>
-
 </template>
 
-
-
 <script>
-import {
-  NavBar,
-  Cell,
-  Image,
-  Icon,
-  List,
-  Rate
-} from "vant";
+import { NavBar, Cell, Image, Icon, List, Rate } from "vant";
 import { useRouter } from "vue-router";
 import Badge from "@/components/Badge.vue";
 import FollowUsers from "@/components/FollowUsers.vue";
 import { ref, reactive } from "vue";
 export default {
-  name: "selfUsers",
+  name: "SelfUsers",
   components: {
     NavBar,
     Cell,
@@ -43,7 +33,7 @@ export default {
     Image,
     List,
     Badge,
-    Rate
+    Rate,
   },
   setup() {
     const _router = useRouter();
@@ -90,5 +80,4 @@ export default {
 
 <style lang="less" scoped>
 @import "@/assets/common.less";
-
 </style>

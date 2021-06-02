@@ -12,7 +12,6 @@
   </Tabbar>
 </template>
 
-
 <style lang="less">
 @import "@/assets/common.less";
 .container {

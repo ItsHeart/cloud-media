@@ -1,11 +1,11 @@
 <template>
   <div class="userItem">
     <Image
-        round
-        fit="cover"
-        width="32px"
-        height="32px"
-        src="https://img.yzcdn.cn/vant/cat.jpeg"
+      round
+      fit="cover"
+      width="32px"
+      height="32px"
+      src="https://img.yzcdn.cn/vant/cat.jpeg"
     />
     <p class="userName">{{ result.userName }}</p>
     <Button class="followBtn" color="#c9d6df" type="default">已关注</Button>
@@ -13,10 +13,7 @@
 </template>
 
 <script>
-import { 
-    Image,
-    Button,
- } from "vant";
+import { Image, Button } from "vant";
 export default {
   name: "FollowUsers",
   components: {
@@ -47,10 +44,12 @@ export default {
   .userItem {
     position: relative;
   }
-  .van-image, .userName, .followBtn {
+  .van-image,
+  .userName,
+  .followBtn {
     position: absolute;
     top: 50%;
-	transform: translateY(-50%);
+    transform: translateY(-50%);
   }
   .van-image {
     left: 8px;
