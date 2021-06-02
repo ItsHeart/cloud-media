@@ -1,5 +1,5 @@
 <template>
-  <Tabs class="tabs" v-model="active" color="#38A2FF">
+  <Tabs class="tabs" v-model:active="active" swipeable>
     <Tab title="关注">内容 1</Tab>
     <Tab title="热点">内容 2</Tab>
     <Tab title="社区">内容 3</Tab>

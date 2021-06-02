@@ -80,7 +80,24 @@
     <ActionBarButton color="#222831" text="参与" @click="comment" />
   </ActionBar>
   <ActionSheet v-model:show="commentShow" title="标题">
-    <div class="commentContent">内容</div>
+    <div class="voteContent">
+      <p>有趣程度：<Rate v-model="myVote.interesting" /></p>
+      <p>严格程度：<Rate v-model="myVote.strict" /></p>
+      <p>作业数量：<Rate v-model="myVote.homework" /></p>
+      <Cell>
+        <Field
+          v-model="myVote.describe"
+          rows="1"
+          autosize
+          label="描述"
+          type="textarea"
+          placeholder="请输入描述"
+          maxlength="50"
+          show-word-limit
+        />
+      </Cell>
+      <Button type="primary" block>提交</Button>
+    </div>
   </ActionSheet>
 </template>
 
@@ -100,6 +117,8 @@ import {
   ActionBarIcon,
   ActionBarButton,
   ActionSheet,
+  Field,
+  Button,
 } from "vant";
 import { useRouter } from "vue-router";
 import Badge from "@/components/Badge.vue";
@@ -122,6 +141,8 @@ export default {
     ActionBarIcon,
     ActionBarButton,
     ActionSheet,
+    Field,
+    Button,
   },
   setup() {
     const _router = useRouter();
@@ -141,6 +162,12 @@ export default {
       interesting: 3.3,
       strict: 4.1,
       homework: 4.5,
+    });
+    const myVote = reactive({
+      interesting: 0,
+      strict: 0,
+      homework: 0,
+      describe: "",
     });
     const onLoad = () => {
       setTimeout(() => {
@@ -172,6 +199,7 @@ export default {
       result,
       commentShow,
       comment,
+      myVote,
     };
   },
 };
@@ -230,7 +258,14 @@ export default {
     line-height: 32px;
   }
 }
-.commentContent {
-  padding: 16px 16px 160px;
+.voteContent {
+  padding: 16px 16px 10px;
+  p {
+    color: #646566;
+    word-wrap: break-word;
+    font-size: 14px;
+    line-height: 24px;
+    margin: 6px 0;
+  }
 }
 </style>

@@ -20,7 +20,8 @@ export default defineConfig({
 					"nav-bar-title-text-color": "#fff",
 					"badge-background-color": "#00adb5",
 					"nav-bar-icon-color": "#fff",
-					"nav-bar-text-color": "#fff"
+					"nav-bar-text-color": "#fff",
+					"tabs-bottom-bar-color": "#222831"
 				}
 			}
 		}
