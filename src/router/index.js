@@ -11,25 +11,29 @@ export default createRouter({
 			children: [
 				{
 					path: "/",
-					component: () => import("@/views/self/Index.vue")
-				},
-				{
-					path: "hotPoint",
-					component: () => import("@/views/hotPoint/Index.vue")
+					component: () => import("@/views/home/Index.vue")
 				},
 				{
 					path: "course",
 					component: () => import("@/views/course/Index.vue")
 				},
 				{
-					path: "community",
-					component: () => import("@/views/community/Index.vue")
+					path: "submission",
+					component: () => import("@/views/submission/Index.vue")
+				},
+				{
+					path: "self",
+					component: () => import("@/views/self/Index.vue")
 				}
 			]
 		},
 		{
 			path: "/course/detail",
 			component: () => import("@/views/course/Detail.vue")
+		},
+		{
+			path: "/self/users",
+			component: () => import("@/views/self/Users.vue")
 		}
 	]
 });

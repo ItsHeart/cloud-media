@@ -5,10 +5,10 @@
   </div>
   <div style="height: 50px"></div>
   <Tabbar v-model="active" active-color="#222831" inactive-color="#B4B6B5">
-    <TabbarItem icon="contact" to="/">我</TabbarItem>
-    <TabbarItem icon="fire-o" to="/hotPoint">热点</TabbarItem>
-    <TabbarItem icon="thumb-circle-o" to="/course">课程</TabbarItem>
-    <TabbarItem icon="comment-circle-o" to="/community">社区</TabbarItem>
+    <TabbarItem icon="contact" to="/">首页</TabbarItem>
+    <TabbarItem icon="fire-o" to="/course">课程</TabbarItem>
+    <TabbarItem icon="thumb-circle-o" to="/submission">投稿</TabbarItem>
+    <TabbarItem icon="comment-circle-o" to="/self">我的</TabbarItem>
   </Tabbar>
 </template>
 
@@ -40,13 +40,13 @@ export default {
     onMounted(() => {
       const { ctx } = getCurrentInstance();
       switch (ctx.$router.currentRoute.value.fullPath) {
-        case "/hotPoint":
+        case "/course":
           choiceActive(1);
           break;
-        case "/course":
+        case "/submission":
           choiceActive(2);
           break;
-        case "/community":
+        case "/self":
           choiceActive(3);
           break;
       }
