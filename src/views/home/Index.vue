@@ -7,24 +7,21 @@
 </template>
 
 <script>
-import { 
-  Tab,
-  Tabs 
-} from "vant";
+import { Tab, Tabs } from "vant";
 import { ref } from "vue";
 
 export default {
   name: "Home",
   components: {
     Tab,
-    Tabs
+    Tabs,
   },
-  setup () {
-    const active = ref(2)
+  setup() {
+    const active = ref(2);
     return {
       active,
-    }
-  }
+    };
+  },
 };
 </script>
 

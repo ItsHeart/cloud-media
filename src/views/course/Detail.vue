@@ -65,7 +65,12 @@
     :finished="state.finished"
     finished-text="没有更多了"
     @load="onLoad"
-    ><Vote class="vote" v-for="item in state.list" :key="item" :result="item" />
+    ><VoteComment
+      class="vote"
+      v-for="item in state.list"
+      :key="item"
+      :result="item"
+    />
   </List>
 
   <div style="height: 50px"></div>
@@ -98,7 +103,7 @@ import {
 } from "vant";
 import { useRouter } from "vue-router";
 import Badge from "@/components/Badge.vue";
-import Vote from "@/components/Vote.vue";
+import VoteComment from "@/components/VoteComment.vue";
 import { ref, reactive } from "vue";
 export default {
   name: "courseDetail",
@@ -112,7 +117,7 @@ export default {
     Cell,
     Badge,
     Rate,
-    Vote,
+    VoteComment,
     ActionBar,
     ActionBarIcon,
     ActionBarButton,

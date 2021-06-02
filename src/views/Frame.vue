@@ -1,5 +1,5 @@
 <template>
-  <NavBar title="Cloud Media" :safe-area-inset-top="true" />
+  <NavBar title="Cloud Media" />
   <div class="container">
     <router-view />
   </div>
@@ -13,7 +13,7 @@
 </template>
 
 
-<style lang="less">
+<style lang="less" scoped>
 @import "@/assets/common.less";
 .container {
   width: 100vw;
@@ -30,7 +30,7 @@ import { ref, onMounted, getCurrentInstance } from "vue";
 import { Tabbar, TabbarItem, NavBar } from "vant";
 
 export default {
-  name: "Home",
+  name: "Frame",
   components: {
     Tabbar,
     TabbarItem,

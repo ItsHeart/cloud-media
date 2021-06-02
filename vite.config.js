@@ -36,6 +36,7 @@ export default defineConfig({
 	},
 	plugins: [
 		vue(),
+		// 按需引入样式源文件
 		styleImport({
 			libs: [
 				{
