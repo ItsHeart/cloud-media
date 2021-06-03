@@ -14,13 +14,14 @@ export default defineConfig({
 					"base-font-family": "Roboto, Noto, Helvetica, Arial, sans-serif",
 					"price-integer-font-family":
 						"Roboto, Noto, Helvetica, Arial, sans-serif",
-					"action-bar-background-color": "#e2e7eb",
-					"action-bar-icon-background-color": "#e2e7eb",
+					"action-bar-background-color": "#EBEBEB",
+					"action-bar-icon-background-color": "#EBEBEB",
 					"nav-bar-background-color": "#222831",
 					"nav-bar-title-text-color": "#fff",
 					"badge-background-color": "#00adb5",
 					"nav-bar-icon-color": "#fff",
-					"nav-bar-text-color": "#fff"
+					"nav-bar-text-color": "#fff",
+					"tabs-bottom-bar-color": "#222831"
 				}
 			}
 		}
@@ -36,6 +37,7 @@ export default defineConfig({
 	},
 	plugins: [
 		vue(),
+		// 按需引入样式源文件
 		styleImport({
 			libs: [
 				{

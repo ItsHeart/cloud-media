@@ -65,15 +65,40 @@
     :finished="state.finished"
     finished-text="没有更多了"
     @load="onLoad"
-    ><Vote class="vote" v-for="item in state.list" :key="item" :result="item" />
+    ><VoteComment
+      class="vote"
+      v-for="item in state.list"
+      :key="item"
+      :result="item"
+    />
   </List>
 
   <div style="height: 50px"></div>
   <ActionBar>
     <ActionBarIcon icon="star-o" text="收藏" />
     <ActionBarIcon icon="bulb-o" text="举报" />
-    <ActionBarButton color="#222831" text="参与" />
+    <ActionBarButton color="#222831" text="参与" @click="comment" />
   </ActionBar>
+  <ActionSheet v-model:show="commentShow" title="标题">
+    <div class="voteContent">
+      <p>有趣程度：<Rate v-model="myVote.interesting" /></p>
+      <p>严格程度：<Rate v-model="myVote.strict" /></p>
+      <p>作业数量：<Rate v-model="myVote.homework" /></p>
+      <Cell>
+        <Field
+          v-model="myVote.describe"
+          rows="1"
+          autosize
+          label="描述"
+          type="textarea"
+          placeholder="请输入描述"
+          maxlength="50"
+          show-word-limit
+        />
+      </Cell>
+      <Button type="primary" block>提交</Button>
+    </div>
+  </ActionSheet>
 </template>
 
 
@@ -91,10 +116,12 @@ import {
   ActionBar,
   ActionBarIcon,
   ActionBarButton,
+  ActionSheet,
+  Field,
+  Button,
 } from "vant";
 import { useRouter } from "vue-router";
-import Badge from "@/components/Badge.vue";
-import Vote from "@/components/Vote.vue";
+import VoteComment from "@/components/VoteComment.vue";
 import { ref, reactive } from "vue";
 export default {
   name: "CourseDetail",
@@ -106,12 +133,14 @@ export default {
     Divider,
     List,
     Cell,
-    Badge,
     Rate,
-    Vote,
+    VoteComment,
     ActionBar,
     ActionBarIcon,
     ActionBarButton,
+    ActionSheet,
+    Field,
+    Button,
   },
   setup() {
     const _router = useRouter();
@@ -132,6 +161,12 @@ export default {
       strict: 4.1,
       homework: 4.5,
     });
+    const myVote = reactive({
+      interesting: 0,
+      strict: 0,
+      homework: 0,
+      describe: "",
+    });
     const onLoad = () => {
       setTimeout(() => {
         for (let i = 0; i < 10; i++) {
@@ -150,12 +185,19 @@ export default {
         }
       }, 1000);
     };
+    const commentShow = ref(false);
+    const comment = () => {
+      commentShow.value = true;
+    };
     return {
       goBack,
       loading,
       state,
       onLoad,
       result,
+      commentShow,
+      comment,
+      myVote,
     };
   },
 };
@@ -212,6 +254,16 @@ export default {
   align-items: flex-start;
   * {
     line-height: 32px;
+  }
+}
+.voteContent {
+  padding: 16px 16px 10px;
+  p {
+    color: #646566;
+    word-wrap: break-word;
+    font-size: 14px;
+    line-height: 24px;
+    margin: 6px 0;
   }
 }
 </style>

@@ -1,30 +1,33 @@
 <template>
-  <Tabs class="tabs" v-model="active" color="#38A2FF">
+  <Tabs class="tabs" v-model:active="active" swipeable>
     <Tab title="关注">内容 1</Tab>
-    <Tab title="热点">内容 2</Tab>
-    <Tab title="社区">内容 3</Tab>
+    <Tab title="热点"><HotPoint /></Tab>
+    <Tab title="社区">
+      <Community />
+    </Tab>
   </Tabs>
 </template>
 
 <script>
-import { 
-  Tab,
-  Tabs 
-} from "vant";
+import { Tab, Tabs } from "vant";
 import { ref } from "vue";
+import Community from "@/views/home/Community.vue";
+import HotPoint from "@/views/home/HotPoint.vue";
 
 export default {
   name: "Home",
   components: {
     Tab,
-    Tabs
+    Tabs,
+    Community,
+    HotPoint,
   },
-  setup () {
-    const active = ref(2)
+  setup() {
+    const active = ref(1);
     return {
       active,
-    }
-  }
+    };
+  },
 };
 </script>
 
