@@ -5,10 +5,22 @@
   </div>
   <div style="height: 50px"></div>
   <Tabbar v-model="active" active-color="#222831" inactive-color="#B4B6B5">
-    <TabbarItem icon="contact" to="/">首页</TabbarItem>
-    <TabbarItem icon="fire-o" to="/course">课程</TabbarItem>
-    <TabbarItem icon="thumb-circle-o" to="/submission">投稿</TabbarItem>
-    <TabbarItem icon="comment-circle-o" to="/self">我的</TabbarItem>
+    <TabbarItem :icon="active == 0 ? 'wap-home' : 'wap-home-o'" to="/"
+      >首页</TabbarItem
+    >
+    <TabbarItem
+      :icon="active == 1 ? 'thumb-circle' : 'thumb-circle-o'"
+      to="/course"
+      >课程</TabbarItem
+    >
+    <TabbarItem
+      :icon="active == 2 ? 'comment-circle' : 'comment-circle-o'"
+      to="/submission"
+      >投稿</TabbarItem
+    >
+    <TabbarItem :icon="active == 3 ? 'manager' : 'manager-o'" to="/self"
+      >我的</TabbarItem
+    >
   </Tabbar>
 </template>
 
