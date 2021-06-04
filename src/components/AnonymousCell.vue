@@ -17,7 +17,7 @@
     </div>
     <div class="comments">
       <Icon class="icon" name="comment-o" />
-      <span>10条评论回复</span>
+      <span @click="toDetail">10条评论回复</span>
     </div>
 
     <Divider :style="{ borderColor: '#888888', margin: '0px 0 0 0' }" />
@@ -26,6 +26,7 @@
 
 <script>
 import { ActionBar, ActionBarIcon, Divider, Icon } from "vant";
+import { useRouter } from 'vue-router';
 import {
   ref,
   reactive,
@@ -49,6 +50,7 @@ export default {
     Icon,
   },
   setup() {
+
     const btnFold = ref(false);
     const text = ref(
       "这是一段文字这是一段字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字"
@@ -66,6 +68,11 @@ export default {
         state.count++;
       }, 1000);
     };
+    const router = useRouter();
+    function toDetail(){
+      console.log("路由跳转");
+      router.push("/submission/anonymous-detail");
+    };
     let divRef = ref(null);
     let textRef = ref(null);
     onMounted(() => {
@@ -80,6 +87,7 @@ export default {
       onRefresh,
       divRef,
       textRef,
+      toDetail,
     };
   },
 };

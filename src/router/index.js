@@ -34,6 +34,10 @@ export default createRouter({
 		{
 			path: "/self/users",
 			component: () => import("@/views/self/Users.vue")
+		},
+		{
+			path: "/submission/anonymous-detail",
+			component: () => import("@/views/submission/AnonymousDetail.vue")
 		}
 	]
 });
