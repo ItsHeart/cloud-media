@@ -1,15 +1,34 @@
 <template>
-  <Empty description="敬请期待,加入我们:18888888888" />
+  <Tabs class="tabs" v-model:active="active" swipeable>
+    <Tab title="匿名投稿"><Anonymous /></Tab>
+    <Tab title="寻物启事">寻物启事</Tab>
+  </Tabs>
 </template>
 
 <script>
-import { Empty } from "vant";
+import { Tab, Tabs } from "vant";
+import { ref } from "vue";
+import Anonymous from "@/views/submission/Anonymous.vue";
 
 export default {
   name: "Submission",
   components: {
-    Empty,
+    Tab,
+    Tabs,
+    Anonymous,
   },
-  setup() {},
+  setup() {
+    const active = ref(0);
+    return {
+      active,
+    };
+  },
 };
 </script>
+
+<style lang="less" scoped>
+@import "@/assets/common.less";
+.tabs {
+  width: 100%;
+}
+</style>
