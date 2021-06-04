@@ -36,13 +36,11 @@ export default {
   },
   setup() {
     const state = reactive({
-      count: 0,
       loading: false,
     });
     const onRefresh = () => {
       setTimeout(() => {
         state.loading = false;
-        state.count++;
       }, 1000);
     };
 

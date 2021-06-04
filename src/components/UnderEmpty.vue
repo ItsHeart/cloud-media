@@ -6,7 +6,7 @@
       fit="contain"
       src="https://img.yzcdn.cn/vant/custom-empty-image.png"
     />
-    <span>下面没有辣</span>
+    <span>我也是有底线的</span>
   </div>
 </template>
 
@@ -24,13 +24,13 @@ export default {
 <style lang="less">
 .under-empty {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  height: 20px;
-  padding: 6px 0 !important;
-  line-height: 28px;
+  align-items: center;
+  padding: 12px 0 !important;
   font-size: 14px;
   span {
-    margin-left: 5px;
+    margin-top: 5px;
   }
 }
 </style>
