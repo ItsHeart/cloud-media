@@ -70,7 +70,6 @@ export default {
     };
     const router = useRouter();
     function toDetail(){
-      console.log("路由跳转");
       router.push("/submission/anonymous-detail");
     };
     let divRef = ref(null);
