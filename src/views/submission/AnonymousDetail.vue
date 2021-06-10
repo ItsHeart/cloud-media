@@ -66,8 +66,11 @@ export default {
         for (let i = 0; i < 10; i++) {
           state.list.push({
             userName: "Double Chen",
-            publishTime: "2021/05/31",
-            describe: "评论评论评论评论评论评论评论评论评论评论评论评论评论评论",
+            publishTime: "2021/06/08 15:40",
+            describe:
+              "评论评论评论评论评论评论评论评论评论评论评论评论评论评论",
+            count: 5,
+            replyCount: 6,
           });
         }
         state.loading = false;
@@ -102,37 +105,8 @@ export default {
   .icon {
     margin-right: 5px;
   }
-}
-.anonymous-comment {
-  display: flex;
-  flex-direction: column;
-  padding: 8px;
-  min-height: 64px;
-  box-shadow: 0px 1px 1px -1px rgb(0 0 0 / 20%),
-    0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 1px 0px rgb(0 0 0 / 12%);
-  .personInfo {
-    text-align: left;
-    small {
-      font-size: 12px;
-      color: #808080;
-    }
-  }
-  .van-image {
-    margin-right: 8px;
-  }
-  > div {
-    display: flex;
-  }
-  p {
-    font-size: 14px;
-    margin: 0;
-  }
-  span {
-    margin-top: 4px;
-    text-indent: 2em;
-    font-size: 12px;
-    text-align: left;
-    display: block;
+  .text {
+    margin-bottom: 15px;
   }
 }
 </style>
